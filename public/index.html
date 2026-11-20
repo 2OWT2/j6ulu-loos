@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5efe3">
+    <title>Jõulu loos</title>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/draw.js"></script>
+  </head>
+  <body>
+    <main class="layout" aria-labelledby="title">
+      <div class="intro">
+        <div class="heading">
+          <span class="heading-mark" aria-hidden="true">✳</span>
+          <h1 id="title">Jõulu loos</h1>
+        </div>
+        <p id="notice" class="lead">Loosimiseks ava link, mille korraldaja sulle saatis.</p>
+        <form id="draw-form" hidden>
+          <p class="lead">Sisesta oma nimi, et teada saada, kellele jõulukingi teed.</p>
+          <label for="name">Sinu nimi</label>
+          <input id="name" name="name" type="text" maxlength="100" autocomplete="off" autocapitalize="words" required>
+          <button class="continue" type="submit">Jätka</button>
+        </form>
+        <p id="pick-hint" class="lead" hidden>Vali üks kolmest loosipiletist.</p>
+        <div id="scratch-controls" hidden>
+          <p id="scratch-hint" class="lead" tabindex="-1">Kraabi piletit sõrme või hiirega, et näha kingisaaja nime.</p>
+          <button id="show-recipient" class="show-recipient" type="button">Näita nime</button>
+        </div>
+        <p id="done-hint" class="lead" hidden>Loos on tehtud. Hoia kingisaaja nimi saladuses!</p>
+        <p id="feedback" class="feedback" role="alert"></p>
+        <noscript><p>Loosimiseks luba brauseris JavaScript.</p></noscript>
+      </div>
+
+      <div class="stage" id="stage" data-state="locked">
+        <div class="deck" id="deck" role="group" aria-label="Loosipiletid" aria-hidden="true">
+          <button class="ticket ticket-left" type="button" data-pick="left" aria-label="Vali esimene pilet" disabled>
+            <span class="ticket-stamp" aria-hidden="true">✷</span>
+          </button>
+          <button class="ticket ticket-center" type="button" data-pick="center" aria-label="Vali teine pilet" disabled>
+            <span class="ticket-stamp" aria-hidden="true">✳</span>
+          </button>
+          <button class="ticket ticket-right" type="button" data-pick="right" aria-label="Vali kolmas pilet" disabled>
+            <span class="ticket-stamp" aria-hidden="true">✦</span>
+          </button>
+        </div>
+        <section class="result" id="assignment" aria-label="Loosipilet" hidden>
+          <div class="result-header">
+            <span class="result-stamp" aria-hidden="true">✳</span>
+            <p id="recipient-label">Sinu kingisaaja</p>
+          </div>
+          <div class="scratch-panel">
+            <h2 id="recipient" aria-describedby="recipient-label" tabindex="-1"></h2>
+            <canvas id="foil" width="720" height="250" aria-hidden="true" hidden></canvas>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

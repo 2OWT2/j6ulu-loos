@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loosi korraldamine · Jõulu loos</title>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/korraldaja.js"></script>
+  </head>
+  <body>
+    <main class="organizer">
+      <h1>Loosi korraldamine</h1>
+      <form>
+        <label for="secret">Korraldaja võti</label>
+        <input id="secret" type="password" required autocomplete="off">
+        <label for="names">Osalejad</label>
+        <textarea id="names" rows="6" aria-describedby="help"></textarea>
+        <p id="help">Kirjuta iga nimi eraldi reale. Olemasolevate kutsete vaatamiseks piisab korraldaja võtmest.</p>
+        <button class="continue" type="submit">Ava kutsed</button>
+      </form>
+      <p id="status" role="status"></p>
+      <ul id="links"></ul>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "j6ulu-loos",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-01-30",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": "./public" },
+  "d1_databases": [{ "binding": "DB" }]
+}
